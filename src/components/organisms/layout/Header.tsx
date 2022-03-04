@@ -1,11 +1,25 @@
-import { memo, VFC } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+
+import { memo, useCallback, VFC } from 'react'
 import { Box, Flex, Heading, Link, useDisclosure } from '@chakra-ui/react'
+import { useHistory } from 'react-router-dom'
 
 import { MenuIconButton } from 'components/atoms/button/MenuIconButton'
 import { MenuDrawer } from 'components/molecules/MenuDrawer'
 
 export const Header: VFC = memo(() => {
+  //レスポンシブ対応用
   const { isOpen, onOpen, onClose } = useDisclosure()
+  //ルーティングでlocation取得
+  const history = useHistory()
+  //ボタンクリック→画面遷移(useCallbackで再レンダリング防止)
+  const onClickHome = useCallback(() => history.push('/home'), [])
+  const onClickUserManagement = useCallback(
+    () => history.push('/home/user_management'),
+    [],
+  )
+  const onClickSetting = useCallback(() => history.push('/home/setting'), [])
+
   return (
     <>
       {/* ナビゲーションバー */}
@@ -18,7 +32,13 @@ export const Header: VFC = memo(() => {
         padding={{ base: 3, md: 5 }}
       >
         {/* タイトル */}
-        <Flex align="center" as="a" mr={8} _hover={{ cursor: 'pointer' }}>
+        <Flex
+          align="center"
+          as="a"
+          mr={8}
+          _hover={{ cursor: 'pointer' }}
+          onClick={onClickHome}
+        >
           <Heading as="h1" fontSize={{ base: 'md', md: 'lg' }}>
             MatchHub
           </Heading>
@@ -32,9 +52,9 @@ export const Header: VFC = memo(() => {
           display={{ base: 'none', md: 'flex' }}
         >
           <Box pr={4}>
-            <Link>ユーザー一覧</Link>
+            <Link onClick={onClickUserManagement}>ユーザー一覧</Link>
           </Box>
-          <Link>設定</Link>
+          <Link onClick={onClickSetting}>設定</Link>
         </Flex>
 
         {/* ハンバーガーメニュー */}
@@ -42,7 +62,13 @@ export const Header: VFC = memo(() => {
       </Flex>
 
       {/* ハンバーガーメニューの内容 */}
-      <MenuDrawer onClose={onClose} isOpen={isOpen} />
+      <MenuDrawer
+        onClose={onClose}
+        isOpen={isOpen}
+        onClickHome={onClickHome}
+        onClickUserManagement={onClickUserManagement}
+        onClickSetting={onClickSetting}
+      />
     </>
   )
 })

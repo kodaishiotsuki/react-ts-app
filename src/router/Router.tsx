@@ -9,9 +9,12 @@ import { HeaderLayout } from 'components/templete/HeaderLayout'
 export const Router: VFC = memo(() => {
   return (
     <Switch>
+      {/* ログイン画面 */}
       <Route exact path="/">
         <Login />
       </Route>
+
+      {/* ホーム画面 */}
       <Route
         path="/home"
         render={({ match: { url } }) => (
@@ -22,12 +25,15 @@ export const Router: VFC = memo(() => {
                 exact={route.exact}
                 path={`${url}${route.path}`}
               >
+                {/* ヘッダー画面 */}
                 <HeaderLayout>{route.children}</HeaderLayout>
               </Route>
             ))}
           </Switch>
         )}
       />
+
+      {/* 404ページ */}
       <Route path="*">
         <Page404 />
       </Route>
