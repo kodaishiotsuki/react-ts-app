@@ -4,7 +4,7 @@ import { useAuth } from 'hooks/useAuth'
 import { ChangeEvent, memo, useState, VFC } from 'react'
 
 export const Login: VFC = memo(() => {
-  const { login ,loading } = useAuth();
+  const { login ,loading } = useAuth(); //カスタムフック
   const [userId, setUserId] = useState("");
 
   //Inputタグの型定義イベント（基本同じ!）

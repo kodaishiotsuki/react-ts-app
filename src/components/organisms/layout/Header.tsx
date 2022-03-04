@@ -15,7 +15,7 @@ export const Header: VFC = memo(() => {
   //ボタンクリック→画面遷移(useCallbackで再レンダリング防止)
   const onClickHome = useCallback(() => history.push('/home'), [])
   const onClickUserManagement = useCallback(
-    () => history.push('/home/user_management'),
+    () => history.push('/home/all_company'),
     [],
   )
   const onClickSetting = useCallback(() => history.push('/home/setting'), [])
@@ -53,7 +53,7 @@ export const Header: VFC = memo(() => {
           display={{ base: 'none', md: 'flex' }}
         >
           <Box pr={4}>
-            <Link onClick={onClickUserManagement}>ユーザー一覧</Link>
+            <Link onClick={onClickUserManagement}>募集一覧</Link>
           </Box>
           <Link onClick={onClickSetting}>設定</Link>
         </Flex>

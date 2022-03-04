@@ -1,7 +1,7 @@
 import { Home } from 'components/pages/Home'
 import { Page404 } from 'components/pages/Page404'
 import { Setting } from 'components/pages/Setting'
-import { UserManagement } from 'components/pages/UserManagement'
+import { AllCompany } from 'components/pages/AllCompany'
 
 export const homeRoute = [
   {
@@ -10,9 +10,9 @@ export const homeRoute = [
     children: <Home />,
   },
   {
-    path: '/user_management',
+    path: '/all_company',
     exact: false,
-    children: <UserManagement />,
+    children: <AllCompany />,
   },
   {
     path: '/setting',

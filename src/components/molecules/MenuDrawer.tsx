@@ -34,7 +34,7 @@ export const MenuDrawer: VFC<Props> = memo((props) => {
               TOP
             </Button>
             <Button w="100%" onClick={onClickUserManagement}>
-              会社一覧
+              募集一覧
             </Button>
             <Button w="100%" onClick={onClickSetting}>
               設定

@@ -9,7 +9,7 @@ import { useMessage } from './useMessage';
 export const useAuth = () => {
   const history = useHistory();
   //カスタムフック
-  const { showMessage } = useMessage();
+  const { showMessage } = useMessage(); //useMessageのshowMessage
 
   const [loading,setLoading] = useState(false);
 
