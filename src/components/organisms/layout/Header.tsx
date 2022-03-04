@@ -10,7 +10,7 @@ import { MenuDrawer } from 'components/molecules/MenuDrawer'
 export const Header: VFC = memo(() => {
   //レスポンシブ対応用
   const { isOpen, onOpen, onClose } = useDisclosure()
-  //ルーティングでlocation取得
+  //ルーティングでlocation取得(useHistory)
   const history = useHistory()
   //ボタンクリック→画面遷移(useCallbackで再レンダリング防止)
   const onClickHome = useCallback(() => history.push('/home'), [])
@@ -19,6 +19,7 @@ export const Header: VFC = memo(() => {
     [],
   )
   const onClickSetting = useCallback(() => history.push('/home/setting'), [])
+
 
   return (
     <>
