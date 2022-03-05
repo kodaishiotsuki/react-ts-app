@@ -5875,6 +5875,13 @@
     "has" "^1.0.3"
     "side-channel" "^1.0.4"
 
+"internal@^2.0.27":
+  "integrity" "sha512-CjqaLeZfh5tarA/9QfqOS37ZHaJk6jDdlY4CouRoGmqmFB9wXdPXrsHQQf+THraEhdPHwTv+FLIBpU1tgp1Njw=="
+  "resolved" "https://registry.npmjs.org/internal/-/internal-2.0.27.tgz"
+  "version" "2.0.27"
+  dependencies:
+    "preact" "10.1.1"
+
 "interpret@^2.2.0":
   "integrity" "sha512-Ju0Bz/cEia55xDwUWEa8+olFpCiQoypjnQySseKtmjNrnps3P+xfpUmGr90T7yjlVJmOtybRvPXhKMbHr+fWnw=="
   "resolved" "https://registry.npmjs.org/interpret/-/interpret-2.2.0.tgz"
@@ -8109,6 +8116,11 @@
   dependencies:
     "picocolors" "^0.2.1"
     "source-map" "^0.6.1"
+
+"preact@10.1.1":
+  "integrity" "sha512-mKW7Cdn68XMhdes0FjyIbA8+IVPsj3aIuAEQlZVkj9E2VhujWcXZEfwirBoXK6qZYfj1djaTBDCFKjAu1sK93w=="
+  "resolved" "https://registry.npmjs.org/preact/-/preact-10.1.1.tgz"
+  "version" "10.1.1"
 
 "prelude-ls@^1.2.1":
   "integrity" "sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g=="

@@ -7,6 +7,7 @@ import theme from './theme/theme'
 
 function App() {
   return (
+    //chakuraUIを使用するために必要
     <ChakraProvider theme={theme}>
       <BrowserRouter>
         <Router />
