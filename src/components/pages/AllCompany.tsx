@@ -11,12 +11,14 @@ import { CompanyCard } from 'components/organisms/company/CompanyCard'
 import { useAllcompany } from 'hooks/useAllCompany'
 import { CompanyDetailModal } from 'components/organisms/company/CompanyDetailModal'
 import { useSelectCompany } from 'hooks/useSelectCompany'
+import { useLoginUser } from 'hooks/useLoginUser'
 
 export const AllCompany: VFC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure() //モーダルを使用するため
   const { getCompany, loading, company } = useAllcompany()
   const { onSelectCompany, selectedCompany } = useSelectCompany()
-  // console.log(selectedCompany);
+  const { loginUser } = useLoginUser()
+  console.log(loginUser)
 
   //画面表示時に会社一覧を取得（初期マウント時はuseEffect!!）
   useEffect(() => getCompany(), [])

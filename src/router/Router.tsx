@@ -5,34 +5,36 @@ import { Login } from 'components/pages/Login'
 import { homeRoute } from './HomeRoutes'
 import { Page404 } from 'components/pages/Page404'
 import { HeaderLayout } from 'components/templete/HeaderLayout'
+import { LoginUserProvider } from 'providers/LoginUserProvider'
 
 export const Router: VFC = memo(() => {
   return (
     <Switch>
-      {/* ログイン画面 */}
-      <Route exact path="/">
-        <Login />
-      </Route>
+      <LoginUserProvider>
+        {/* ログイン画面 */}
+        <Route exact path="/">
+          <Login />
+        </Route>
 
-      {/* ホーム画面 */}
-      <Route
-        path="/home"
-        render={({ match: { url } }) => (
-          <Switch>
-            {homeRoute.map((route) => (
-              <Route
-                key={route.path}
-                exact={route.exact}
-                path={`${url}${route.path}`}
-              >
-                {/* ヘッダー画面 */}
-                <HeaderLayout>{route.children}</HeaderLayout>
-              </Route>
-            ))}
-          </Switch>
-        )}
-      />
-
+        {/* ホーム画面 */}
+        <Route
+          path="/home"
+          render={({ match: { url } }) => (
+            <Switch>
+              {homeRoute.map((route) => (
+                <Route
+                  key={route.path}
+                  exact={route.exact}
+                  path={`${url}${route.path}`}
+                >
+                  {/* ヘッダー画面 */}
+                  <HeaderLayout>{route.children}</HeaderLayout>
+                </Route>
+              ))}
+            </Switch>
+          )}
+        />
+      </LoginUserProvider>
       {/* 404ページ */}
       <Route path="*">
         <Page404 />
